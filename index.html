@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <base target="_self">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="./style.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+  <script src="dtap.js"></script>
+  <script src="mcv4.js"></script>
+  <script src="dtap2.js"></script>
+  <script src="dtap3.js"></script>
+  <script src="dtap4.js"></script>
+  <script src="varicella.js"></script>
+  <script src="tdap.js"></script>
+  <script src="hepb.js"></script>
+
+</head>
+
+<body>
+
+  <div class="header-main">
+
+
+    <div class="header">
+      <img src="./logo.png" alt="" />
+      <p class="logo-title">
+        K-12 Student
+        <span class="vaccine-compliance-style">Vaccine Compliance</span>
+      </p>
+    </div>
+  </div>
+
+  <div class="student-demographic">
+    <p class="student-demographic-title">Student Demographic MIKE</p>
+
+
+  </div>
+  <div class="student-demographic-inputs">
+    <div class="row">
+      <div class="col s12 l6">
+        <p> Date of Birth</p>
+        <input type="date" id="bday" name="birthday" style="border: 1px solid #f3f1f1;height:42px;">
+      </div>
+
+      <div class="col s12 l6">
+        <p> Grade</p>
+
+        <select class="browser-default" id="gradeLevel" required>
+          <option value="none" selected disabled hidden>Select Student Grade</option>
+          <option>0</option>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+          <option>6</option>
+          <option>7</option>
+          <option>8</option>
+          <option>9</option>
+          <option>10</option>
+          <option>11</option>
+          <option>12</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="vaccine-status-and-entry">
+    <p class="vaccine-status-title">Dose Entries and Compliance Status </p>
+  </div>
+
+
+  <div class="vaccines-buttons">
+    <div class="row">
+      <div class="col s3 l1">
+        <button class="vaccine-button-style" id="toggleButtonDTaP">DTaP</button>
+      </div>
+      <div class="col s3 l1">
+        <button class="vaccine-button-style" id="toggleButtonTdap">tdap</button>
+      </div>
+
+      <div class="col s3 l1">
+        <button class="vaccine-button-style" id="toggleButtonTd">td</button>
+      </div>
+      <div class="col s3 l1">
+        <button class="vaccine-button-style" id="toggleButtonDt">dt</button>
+      </div>
+      <div class="col s3 l1">
+        <button class="vaccine-button-style" id="toggleButtonPolio">Polio</button>
+      </div>
+      <div class="col s3 l1">
+        <button class="vaccine-button-style" id="toggleButton">mcv4</button>
+      </div>
+      <div class="col s3 l1">
+        <button class="vaccine-button-style" id="toggleButtonMmr">MMR</button>
+      </div>
+      <div class="col s3 l1">
+        <button class="vaccine-button-style" id="toggleButtonMmrv">MMRV</button>
+      </div>
+      <div class="col s6 l1">
+        <button class="vaccine-button-style" id="toggleButtonVaricella">Varicella</button>
+      </div>
+      <div class="col s6 l1">
+        <button class="vaccine-button-style" id="toggleButtonHepB">Hep B</button>
+      </div>
+    </div>
+  </div>
+
+<!-- compliance status div start here -->
+
+  <div class="compliance-status-div">
+    <div class="row">
+      <div class="col s12 l3">
+        <p class="vaccine-name">MCV4</p>
+      </div>
+      <div class="col s12 l9">
+        <div class="row">
+
+          <div class=" col s12 l2">
+
+            <input type="date" placeholder="Enter dose 1 date" id="dose1MCV4" value=""
+              style="border: 1px solid #f3f1f1;height:42px;" />
+          </div>
+
+          <div class=" col s12 l2">
+
+            <input type="date" placeholder="Enter dose 2 date" id="dose2MCV4" value=""
+              style="border: 1px solid #f3f1f1;height:42px;" />
+          </div>
+
+          <div class=" col s12 l2">
+
+            <input type="date" placeholder="Enter dose 3 date" id="dose3MCV4" value=""
+              style="border: 1px solid #f3f1f1;height:42px;" />
+          </div>
+
+          <div class=" col s12 l2">
+
+            <input type="date" placeholder="Enter dose 4 date" id="dose4MCV4" value=""
+              style="border: 1px solid #f3f1f1;height:42px;" />
+          </div>
+          <div class=" col s12 l4">
+
+            <button id="btn4" class="get-status-btn" type="submit" name="action">Get mcv4 Compliance
+              Status
+            </button>
+          </div>
+
+        </div>
+        <div class="compliance-status-row">
+
+
+          <div class="row">
+
+            <div class=" col s12 l6">
+
+              <div class="compliance-status-div-style">
+                <p class="status-heading">Compliance Status</p>
+                <div class="compliance-status-border-style">
+                  <div class="compliance-status-border">
+                  </div>
+                </div>
+                <div class="compliance-status-value">
+
+                  <p class="solid" id="resultMCV4"></p>
+                  <p class="solid" id="intervalMCV4"></p>
+                </div>
+              </div>
+            </div>
+            <div class=" col s12 l6">
+              <div class="compliance-status-div-style">
+
+                <p class="status-heading">Next Step</p>
+                <div class="compliance-status-border-style">
+                  <div class="compliance-status-border">
+                  </div>
+                </div>
+                <p class="solid" id="resultMCV4"></p>
+                <p class="solid" id="intervalMCV4"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- compliance status div end here -->
+
+
+<!-- compliance status div start here -->
+
+<div class="dtap-compliance-status-div">
+  <div class="row">
+    <div class="col s12 l3">
+      <p class="vaccine-name">DTaP</p>
+    </div>
+    <div class="col s12 l9">
+      <div class="row">
+
+        <div class=" col s12 l2">
+
+          <input type="date" placeholder="Enter dose 1 date" id="dose1dtap" value=""
+            style="border: 1px solid #f3f1f1;height:42px;" />
+        </div>
+
+        <div class=" col s12 l2">
+
+          <input type="date" placeholder="Enter dose 2 date" id="dose2dtap" value=""
+            style="border: 1px solid #f3f1f1;height:42px;" />
+        </div>
+
+        <div class=" col s12 l2">
+
+          <input type="date" placeholder="Enter dose 3 date" id="dose3dtap" value=""
+            style="border: 1px solid #f3f1f1;height:42px;" />
+        </div>
+
+        <div class=" col s12 l2">
+
+          <input type="date" placeholder="Enter dose 4 date" id="dose4dtap" value=""
+            style="border: 1px solid #f3f1f1;height:42px;" />
+        </div>
+        <div class=" col s12 l4">
+
+          <button id="btn4" class="get-status-btn" type="submit" name="action">Get Dtap Compliance
+            Status
+          </button>
+        </div>
+
+      </div>
+      <div class="compliance-status-row">
+
+
+        <div class="row">
+
+          <div class="col s12 l6">
+
+            <div class="compliance-status-div-style">
+              <p class="status-heading">Compliance Status</p>
+              <div class="compliance-status-border-style">
+                <div class="compliance-status-border">
+                </div>
+              </div>
+              <div class="compliance-status-value">
+
+                <p class="solid" id="resultMCV4"></p>
+                <p class="solid" id="intervalMCV4"></p>
+              </div>
+            </div>
+          </div>
+          <div class="col s12 l6">
+            <div class="compliance-status-div-style">
+
+              <p class="status-heading">Next Step</p>
+                <p class="solid" id="resultMCV4"></p>
+              <p class="solid" id="intervalMCV4"></p>
+              <div class="compliance-status-border-style">
+                <div class="compliance-status-border">
+                </div>
+              </div>
+            
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- compliance status div end here -->
+
+
+
+
+<!-- tdap compliance status div start here -->
+
+<div class="tdap-compliance-status-div">
+  <div class="row">
+    <div class="col s12 l3">
+      <p class="vaccine-name">tdap</p>
+    </div>
+    <div class="col s12 l9">
+      <div class="row">
+
+        <div class=" col s12 l2">
+
+          <input type="date" placeholder="Enter dose 1 date" id="dose1tdap" value=""
+            style="border: 1px solid #f3f1f1;height:42px;" />
+        </div>
+
+        <div class=" col s12 l2">
+
+          <input type="date" placeholder="Enter dose 2 date" id="dose2tdap" value=""
+            style="border: 1px solid #f3f1f1;height:42px;" />
+        </div>
+
+        <div class=" col s12 l2">
+
+          <input type="date" placeholder="Enter dose 3 date" id="dose3tdap" value=""
+            style="border: 1px solid #f3f1f1;height:42px;" />
+        </div>
+
+        <div class=" col s12 l2">
+
+          <input type="date" placeholder="Enter dose 4 date" id="dose4tdap" value=""
+            style="border: 1px solid #f3f1f1;height:42px;" />
+        </div>
+        <div class=" col s12 l4">
+
+          <button id="btnTdap" class="get-status-btn" type="submit" name="action">Get tdap Status
+          </button>
+        </div>
+
+      </div>
+      <div class="compliance-status-row">
+
+
+        <div class="row">
+
+          <div class="col s12 l6">
+
+            <div class="compliance-status-div-style">
+              <p class="status-heading">Compliance Status</p>
+              <div class="compliance-status-border-style">
+                <div class="compliance-status-border">
+                </div>
+              </div>
+              <div class="compliance-status-value">
+
+                <p class="solid" id="resultTdap"></p>
+                <p class="solid" id="intervalTdap"></p>
+              </div>
+            </div>
+          </div>
+          <div class="col s12 l6">
+            <div class="compliance-status-div-style">
+
+              <p class="status-heading">Next Step</p>
+              <div class="compliance-status-border-style">
+                <div class="compliance-status-border">
+                </div>
+              </div>
+              <p class="solid" id="resultTdap"></p>
+              <p class="solid" id="intervalTdap"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- tdap compliance status div end here -->
+
+
+
+
+
+
+<!-- td compliance status div start here -->
+
+<div class="td-compliance-status-div">
+  <div class="row">
+    <div class="col s12 l3">
+      <p class="vaccine-name">Td</p>
+    </div>
+    <div class="col s12 l9">
+      <div class="row">
+        <div class=" col s12 l2">
+
+          <input type="date" placeholder="Enter dose 1 date" id="dose1td" value=""
+            style="border: 1px solid #f3f1f1;height:42px;" />
+        </div>
+
+        <div class=" col s12 l2">
+
+          <input type="date" placeholder="Enter dose 2 date" id="dose2td" value=""
+            style="border: 1px solid #f3f1f1;height:42px;" />
+        </div>
+
+        <div class=" col s12 l2">
+
+          <input type="date" placeholder="Enter dose 3 date" id="dose3td" value=""
+            style="border: 1px solid #f3f1f1;height:42px;" />
+        </div>
+
+        <div class=" col s12 l2">
+
+          <input type="date" placeholder="Enter dose 4 date" id="dose4td" value=""
+            style="border: 1px solid #f3f1f1;height:42px;" />
+        </div>
+        <div class=" col s12 l4">
+
+          <button id="btn4" class="get-status-btn" type="submit" name="action">Get td Compliance
+            Status
+          </button>
+        </div>
+
+      </div>
+      <div class="compliance-status-row">
+
+
+        <div class="row">
+
+          <div class=" col s12 l6">
+
+            <div class="compliance-status-div-style">
+              <p class="status-heading">Compliance Status</p>
+              <div class="compliance-status-border-style">
+                <div class="compliance-status-border">
+                </div>
+              </div>
+              <div class="compliance-status-value">
+
+                <p class="solid" id="resultMCV4"></p>
+                <p class="solid" id="intervalMCV4"></p>
+              </div>
+            </div>
+          </div>
+          <div class=" col s12 l6">
+            <div class="compliance-status-div-style">
+
+              <p class="status-heading">Next Step</p>
+              <div class="compliance-status-border-style">
+                <div class="compliance-status-border">
+                </div>
+              </div>
+              <p class="solid" id="resultMCV4"></p>
+              <p class="solid" id="intervalMCV4"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- td compliance status div end here -->
+
+
+<!-- td compliance status div start here -->
+
+<div class="dt-compliance-status-div">
+  <div class="row">
+    <div class="col s12 l3">
+      <p class="vaccine-name">Dt</p>
+    </div>
+    <div class="col s12 l9">
+      <div class="row">
+
+        <div class=" col s12 l2">
+
+          <input type="date" placeholder="Enter dose 1 date" id="dose1dt" value=""
+            style="border: 1px solid #f3f1f1;height:42px;" />
+        </div>
+
+        <div class=" col s12 l2">
+
+          <input type="date" placeholder="Enter dose 2 date" id="dose2dt" value=""
+            style="border: 1px solid #f3f1f1;height:42px;" />
+        </div>
+
+        <div class=" col s12 l2">
+
+          <input type="date" placeholder="Enter dose 3 date" id="dose3dt" value=""
+            style="border: 1px solid #f3f1f1;height:42px;" />
+        </div>
+        <div class=" col s12 l2">
+
+          <input type="date" placeholder="Enter dose 4 date" id="dose4dt" value=""
+            style="border: 1px solid #f3f1f1;height:42px;" />
+        </div>
+        <div class=" col s12 l4">
+
+          <button id="btn4" class="get-status-btn" type="submit" name="action">Get dt Compliance
+            Status
+          </button>
+        </div>
+
+      </div>
+      <div class="compliance-status-row">
+
+
+        <div class="row">
+
+          <div class=" col s12 l6">
+
+            <div class="compliance-status-div-style">
+              <p class="status-heading">Compliance Status</p>
+              <div class="compliance-status-border-style">
+                <div class="compliance-status-border">
+                </div>
+              </div>
+              <div class="compliance-status-value">
+
+                <p class="solid" id="resultMCV4"></p>
+                <p class="solid" id="intervalMCV4"></p>
+              </div>
+            </div>
+          </div>
+          <div class=" col s12 l6">
+            <div class="compliance-status-div-style">
+
+              <p class="status-heading">Next Step</p>
+              <div class="compliance-status-border-style">
+                <div class="compliance-status-border">
+                </div>
+              </div>
+              <p class="solid" id="resultMCV4"></p>
+              <p class="solid" id="intervalMCV4"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- dt compliance status div end here -->
+
+
+
+<!-- polio compliance status div start here -->
+
+<div class="polio-compliance-status-div">
+  <div class="row">
+    <div class="col s12 l3">
+      <p class="vaccine-name">Polio</p>
+    </div>
+    <div class="col s12 l9">
+      <div class="row">
+
+        <div class=" col s12 l2">
+
+          <input type="date" placeholder="Enter dose 1 date" id="dose1polio" value=""
+            style="border: 1px solid #f3f1f1;height:42px;" />
+        </div>
+
+        <div class=" col s12 l2">
+
+          <input type="date" placeholder="Enter dose 2 date" id="dose2polio" value=""
+            style="border: 1px solid #f3f1f1;height:42px;" />
+        </div>
+
+        <div class=" col s12 l2">
+
+          <input type="date" placeholder="Enter dose 3 date" id="dose3polio" value=""
+            style="border: 1px solid #f3f1f1;height:42px;" />
+        </div>
+
+        <div class=" col s12 l2">
+
+          <input type="date" placeholder="Enter dose 4 date" id="dose4polio" value=""
+            style="border: 1px solid #f3f1f1;height:42px;" />
+        </div>
+        <div class=" col s12 l4">
+
+          <button id="btn4" class="get-status-btn" type="submit" name="action">Get polio Compliance
+            Status
+          </button>
+        </div>
+
+      </div>
+      <div class="compliance-status-row">
+
+
+        <div class="row">
+
+          <div class=" col s12 l6">
+
+            <div class="compliance-status-div-style">
+              <p class="status-heading">Compliance Status</p>
+              <div class="compliance-status-border-style">
+                <div class="compliance-status-border">
+                </div>
+              </div>
+              <div class="compliance-status-value">
+
+                <p class="solid" id="resultMCV4"></p>
+                <p class="solid" id="intervalMCV4"></p>
+              </div>
+            </div>
+          </div>
+          <div class=" col s12 l6">
+            <div class="compliance-status-div-style">
+
+              <p class="status-heading">Next Step</p>
+              <div class="compliance-status-border-style">
+                <div class="compliance-status-border">
+                </div>
+              </div>
+              <p class="solid" id="resultMCV4"></p>
+              <p class="solid" id="intervalMCV4"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- polio compliance status div end here -->
+
+
+
+
+<!-- mmr compliance status div start here -->
+<div class="mmr-compliance-status-div">
+  <div class="row">
+    <div class="col s12 l3">
+      <p class="vaccine-name">MMR</p>
+    </div>
+    <div class="col s12 l9">
+      <div class="row">
+
+        <div class=" col s12 l2">
+
+          <input type="date" placeholder="Enter dose 1 date" id="dose1mmr" value=""
+            style="border: 1px solid #f3f1f1;height:42px;" />
+        </div>
+
+        <div class=" col s12 l2">
+
+          <input type="date" placeholder="Enter dose 2 date" id="dose2mmr" value=""
+            style="border: 1px solid #f3f1f1;height:42px;" />
+        </div>
+
+        <div class=" col s12 l2">
+
+          <input type="date" placeholder="Enter dose 3 date" id="dose3mmr" value=""
+            style="border: 1px solid #f3f1f1;height:42px;" />
+        </div>
+
+        <div class=" col s12 l2">
+
+          <input type="date" placeholder="Enter dose 4 date" id="dose4mmr" value=""
+            style="border: 1px solid #f3f1f1;height:42px;" />
+        </div>
+        <div class=" col s12 l4">
+
+          <button id="btn4" class="get-status-btn" type="submit" name="action">Get mmr Compliance
+            Status
+          </button>
+        </div>
+
+      </div>
+      <div class="compliance-status-row">
+
+
+        <div class="row">
+
+          <div class=" col s12 l6">
+
+            <div class="compliance-status-div-style">
+              <p class="status-heading">Compliance Status</p>
+              <div class="compliance-status-border-style">
+                <div class="compliance-status-border">
+                </div>
+              </div>
+              <div class="compliance-status-value">
+
+                <p class="solid" id="resultMCV4"></p>
+                <p class="solid" id="intervalMCV4"></p>
+              </div>
+            </div>
+          </div>
+          <div class=" col s12 l6">
+            <div class="compliance-status-div-style">
+
+              <p class="status-heading">Next Step</p>
+              <div class="compliance-status-border-style">
+                <div class="compliance-status-border">
+                </div>
+              </div>
+              <p class="solid" id="resultMCV4"></p>
+              <p class="solid" id="intervalMCV4"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- mmr compliance status div end here -->
+
+
+<!-- mmrv compliance status div start here -->
+<div class="mmrv-compliance-status-div">
+  <div class="row">
+    <div class="col s12 l3">
+      <p class="vaccine-name">MMRV</p>
+    </div>
+    <div class="col s12 l9">
+      <div class="row">
+
+        <div class=" col s12 l2">
+
+          <input type="date" placeholder="Enter dose 1 date" id="dose1mmrv" value=""
+            style="border: 1px solid #f3f1f1;height:42px;" />
+        </div>
+
+        <div class=" col s12 l2">
+
+          <input type="date" placeholder="Enter dose 2 date" id="dose2mmrv" value=""
+            style="border: 1px solid #f3f1f1;height:42px;" />
+        </div>
+
+        <div class=" col s12 l2">
+
+          <input type="date" placeholder="Enter dose 3 date" id="dose3mmrv" value=""
+            style="border: 1px solid #f3f1f1;height:42px;" />
+        </div>
+
+        <div class=" col s12 l2">
+
+          <input type="date" placeholder="Enter dose 4 date" id="dose4mmrv" value=""
+            style="border: 1px solid #f3f1f1;height:42px;" />
+        </div>
+        <div class=" col s12 l4">
+
+          <button id="btn4" class="get-status-btn" type="submit" name="action">Get mmrv Compliance
+            Status
+          </button>
+        </div>
+
+      </div>
+      <div class="compliance-status-row">
+
+
+        <div class="row">
+
+          <div class=" col s12 l6">
+
+            <div class="compliance-status-div-style">
+              <p class="status-heading">Compliance Status</p>
+              <div class="compliance-status-border-style">
+                <div class="compliance-status-border">
+                </div>
+              </div>
+              <div class="compliance-status-value">
+
+                <p class="solid" id="resultMCV4"></p>
+                <p class="solid" id="intervalMCV4"></p>
+              </div>
+            </div>
+          </div>
+          <div class=" col s12 l6">
+            <div class="compliance-status-div-style">
+
+              <p class="status-heading">Next Step</p>
+              <div class="compliance-status-border-style">
+                <div class="compliance-status-border">
+                </div>
+              </div>
+              <p class="solid" id="resultMCV4"></p>
+              <p class="solid" id="intervalMCV4"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- mmrv compliance status div end here -->
+
+
+
+
+<!-- varicellla compliance status div start here -->
+<div class="varicella-compliance-status-div">
+  <div class="row">
+    <div class="col s12 l3">
+      <p class="vaccine-name">Varicella</p>
+    </div>
+    <div class="col s12 l9">
+      <div class="row">
+
+        <div class=" col s12 l2">
+
+          <input type="date" placeholder="Enter dose 1 date" id="dose1varicella" value=""
+            style="border: 1px solid #f3f1f1;height:42px;" />
+        </div>
+
+        <div class=" col s12 l2">
+
+          <input type="date" placeholder="Enter dose 2 date" id="dose2varicella" value=""
+            style="border: 1px solid #f3f1f1;height:42px;" />
+        </div>
+
+        <div class=" col s12 l2">
+
+          <input type="date" placeholder="Enter dose 3 date" id="dose3varicella" value=""
+            style="border: 1px solid #f3f1f1;height:42px;" />
+        </div>
+
+        <div class=" col s12 l2">
+
+          <input type="date" placeholder="Enter dose 4 date" id="dose4varicella" value=""
+            style="border: 1px solid #f3f1f1;height:42px;" />
+        </div>
+        <div class=" col s12 l4">
+
+          <button id="btn4" class="get-status-btn" type="submit" name="action">Get varicella Compliance
+            Status
+          </button>
+        </div>
+
+      </div>
+      <div class="compliance-status-row">
+
+
+        <div class="row">
+
+          <div class=" col s12 l6">
+
+            <div class="compliance-status-div-style">
+              <p class="status-heading">Compliance Status</p>
+              <div class="compliance-status-border-style">
+                <div class="compliance-status-border">
+                </div>
+              </div>
+              <div class="compliance-status-value">
+
+                <p class="solid" id="resultMCV4"></p>
+                <p class="solid" id="intervalMCV4"></p>
+              </div>
+            </div>
+          </div>
+          <div class=" col s12 l6">
+            <div class="compliance-status-div-style">
+
+              <p class="status-heading">Next Step</p>
+              <div class="compliance-status-border-style">
+                <div class="compliance-status-border">
+                </div>
+              </div>
+              <p class="solid" id="resultMCV4"></p>
+              <p class="solid" id="intervalMCV4"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- varicella compliance status div end here -->
+
+
+
+
+
+  <!-- hepb compliance status div start here -->
+  <div class="hepb-compliance-status-div">
+    <div class="row">
+      <div class="col s12 l3">
+        <p class="vaccine-name">Hep B</p>
+      </div>
+      <div class="col s12 l9">
+        <div class="row">
+
+          <div class=" col s12 l2">
+
+            <input type="date" placeholder="Enter dose 1 date" id="dose1hepb" value=""
+              style="border: 1px solid #f3f1f1;height:42px;" />
+          </div>
+
+          <div class=" col s12 l2">
+
+            <input type="date" placeholder="Enter dose 2 date" id="dose2hepb" value=""
+              style="border: 1px solid #f3f1f1;height:42px;" />
+          </div>
+
+          <div class=" col s12 l2">
+
+            <input type="date" placeholder="Enter dose 3 date" id="dose3hepb" value=""
+              style="border: 1px solid #f3f1f1;height:42px;" />
+          </div>
+
+          <div class=" col s12 l2">
+
+            <input type="date" placeholder="Enter dose 4 date" id="dose4hepb" value=""
+              style="border: 1px solid #f3f1f1;height:42px;" />
+          </div>
+          <div class=" col s12 l4">
+
+            <button id="btn4" class="get-status-btn" type="submit" name="action">Get Hep B Compliance
+              Status
+            </button>
+          </div>
+
+        </div>
+        <div class="compliance-status-row">
+
+
+          <div class="row">
+
+            <div class=" col s12 l6">
+
+              <div class="compliance-status-div-style">
+                <p class="status-heading">Compliance Status</p>
+                <div class="compliance-status-border-style">
+                  <div class="compliance-status-border">
+                  </div>
+                </div>
+                <div class="compliance-status-value">
+
+                  <p class="solid" id="resultMCV4"></p>
+                  <p class="solid" id="intervalMCV4"></p>
+                </div>
+              </div>
+            </div>
+            <div class=" col s12 l6">
+              <div class="compliance-status-div-style">
+
+                <p class="status-heading">Next Step</p>
+                <div class="compliance-status-border-style">
+                  <div class="compliance-status-border">
+                  </div>
+                </div>
+                <p class="solid" id="resultMCV4"></p>
+                <p class="solid" id="intervalMCV4"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- hepb compliance status div end here -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+<script>
+  // Function to toggle section display and change button color
+  function toggleSection() {
+    var section = document.querySelector(".compliance-status-div");
+    var button = document.getElementById("toggleButton");
+    
+    // Check if section is hidden
+    if (section.style.display === "none" || section.style.display === "") {
+      // Show section
+      section.style.display = "block";
+      // Change button color
+      button.style.backgroundColor = "#EB5930";
+      button.style.color = "white";
+      // Set a flag in local storage to remember state
+      localStorage.setItem("sectionDisplayed", "true");
+    } else {
+      // Hide section
+      section.style.display = "none";
+      // Reset button color
+      button.style.backgroundColor = "";
+      // Remove flag from local storage
+      localStorage.removeItem("sectionDisplayed");
+    }
+  }
+
+  // Add click event listener to the button
+  document.getElementById("toggleButton").addEventListener("click", toggleSection);
+
+  // Check local storage for previous state
+  if (localStorage.getItem("sectionDisplayed") === "true") {
+    toggleSection(); // If section was previously displayed, show it
+  }
+</script>
+
+
+<script>
+  // Function to toggle section display and change button color for DTaP
+  function toggleSectionDTaP() {
+    var section = document.querySelector(".dtap-compliance-status-div");
+    var button = document.getElementById("toggleButtonDTaP");
+    
+    // Check if section is hidden
+    if (section.style.display === "none" || section.style.display === "") {
+      // Show section
+      section.style.display = "block";
+      // Change button color
+      button.style.backgroundColor = "#EB5930";
+      button.style.color = "#fff";
+      // Set a flag in local storage to remember state
+      localStorage.setItem("sectionDisplayedDTaP", "true");
+    } else {
+      // Hide section
+      section.style.display = "none";
+      // Reset button color
+      button.style.backgroundColor = "";
+      // Remove flag from local storage
+      localStorage.removeItem("sectionDisplayedDTaP");
+    }
+  }
+
+  // Add click event listener to the button for DTaP
+  document.getElementById("toggleButtonDTaP").addEventListener("click", toggleSectionDTaP);
+
+  // Check local storage for previous state for DTaP
+  if (localStorage.getItem("sectionDisplayedDTaP") === "true") {
+    toggleSectionDTaP(); // If section was previously displayed, show it
+  }
+</script>
+
+
+
+<script>
+  // Function to toggle section display and change button color for tdap
+  function toggleSectionTdap() {
+    var section = document.querySelector(".tdap-compliance-status-div");
+    var button = document.getElementById("toggleButtonTdap");
+    
+    // Check if section is hidden
+    if (section.style.display === "none" || section.style.display === "") {
+      // Show section
+      section.style.display = "block";
+      // Change button color
+      button.style.backgroundColor = "#EB5930";
+      button.style.color = "#fff";
+      // Set a flag in local storage to remember state
+      localStorage.setItem("sectionDisplayedTdap", "true");
+    } else {
+      // Hide section
+      section.style.display = "none";
+      // Reset button color
+      button.style.backgroundColor = "";
+      // Remove flag from local storage
+      localStorage.removeItem("sectionDisplayedTdap");
+    }
+  }
+
+  // Add click event listener to the button for tdap
+  document.getElementById("toggleButtonTdap").addEventListener("click", toggleSectionTdap);
+
+  // Check local storage for previous state for tdap
+  if (localStorage.getItem("sectionDisplayedTdap") === "true") {
+    toggleSectionTdap(); // If section was previously displayed, show it
+  }
+</script>
+
+
+<script>
+  // Function to toggle section display and change button color for td
+  function toggleSectionTd() {
+    var section = document.querySelector(".td-compliance-status-div");
+    var button = document.getElementById("toggleButtonTd");
+    
+    // Check if section is hidden
+    if (section.style.display === "none" || section.style.display === "") {
+      // Show section
+      section.style.display = "block";
+      // Change button color
+      button.style.backgroundColor = "#EB5930";
+      button.style.color = "#fff";
+      // Set a flag in local storage to remember state
+      localStorage.setItem("sectionDisplayedTd", "true");
+    } else {
+      // Hide section
+      section.style.display = "none";
+      // Reset button color
+      button.style.backgroundColor = "";
+      // Remove flag from local storage
+      localStorage.removeItem("sectionDisplayedTd");
+    }
+  }
+
+  // Add click event listener to the button for td
+  document.getElementById("toggleButtonTd").addEventListener("click", toggleSectionTd);
+
+  // Check local storage for previous state for td
+  if (localStorage.getItem("sectionDisplayedTd") === "true") {
+    toggleSectionTd(); // If section was previously displayed, show it
+  }
+</script>
+
+<script>
+  // Function to toggle section display and change button color for dt
+  function toggleSectionDt() {
+    var section = document.querySelector(".dt-compliance-status-div");
+    var button = document.getElementById("toggleButtonDt");
+    
+    // Check if section is hidden
+    if (section.style.display === "none" || section.style.display === "") {
+      // Show section
+      section.style.display = "block";
+      // Change button color
+      button.style.backgroundColor = "#EB5930";
+      button.style.color = "#fff";
+      // Set a flag in local storage to remember state
+      localStorage.setItem("sectionDisplayedDt", "true");
+    } else {
+      // Hide section
+      section.style.display = "none";
+      // Reset button color
+      button.style.backgroundColor = "";
+      // Remove flag from local storage
+      localStorage.removeItem("sectionDisplayedDt");
+    }
+  }
+
+  // Add click event listener to the button for dt
+  document.getElementById("toggleButtonDt").addEventListener("click", toggleSectionDt);
+
+  // Check local storage for previous state for dt
+  if (localStorage.getItem("sectionDisplayedDt") === "true") {
+    toggleSectionDt(); // If section was previously displayed, show it
+  }
+</script>
+
+
+<script>
+  // Function to toggle section display and change button color for Polio
+  function toggleSectionPolio() {
+    var section = document.querySelector(".polio-compliance-status-div");
+    var button = document.getElementById("toggleButtonPolio");
+    
+    // Check if section is hidden
+    if (section.style.display === "none" || section.style.display === "") {
+      // Show section
+      section.style.display = "block";
+      // Change button color
+      button.style.backgroundColor = "#EB5930";
+      button.style.color = "#fff";
+      // Set a flag in local storage to remember state
+      localStorage.setItem("sectionDisplayedPolio", "true");
+    } else {
+      // Hide section
+      section.style.display = "none";
+      // Reset button color
+      button.style.backgroundColor = "";
+      // Remove flag from local storage
+      localStorage.removeItem("sectionDisplayedPolio");
+    }
+  }
+
+  // Add click event listener to the button for Polio
+  document.getElementById("toggleButtonPolio").addEventListener("click", toggleSectionPolio);
+
+  // Check local storage for previous state for Polio
+  if (localStorage.getItem("sectionDisplayedPolio") === "true") {
+    toggleSectionPolio(); // If section was previously displayed, show it
+  }
+</script>
+
+<script>
+  // Function to toggle section display and change button color for MMR
+  function toggleSectionMmr() {
+    var section = document.querySelector(".mmr-compliance-status-div");
+    var button = document.getElementById("toggleButtonMmr");
+    
+    // Check if section is hidden
+    if (section.style.display === "none" || section.style.display === "") {
+      // Show section
+      section.style.display = "block";
+      // Change button color
+      button.style.backgroundColor = "#EB5930";
+      button.style.color = "#fff";
+      // Set a flag in local storage to remember state
+      localStorage.setItem("sectionDisplayedMmr", "true");
+    } else {
+      // Hide section
+      section.style.display = "none";
+      // Reset button color
+      button.style.backgroundColor = "";
+      // Remove flag from local storage
+      localStorage.removeItem("sectionDisplayedMmr");
+    }
+  }
+
+  // Add click event listener to the button for MMR
+  document.getElementById("toggleButtonMmr").addEventListener("click", toggleSectionMmr);
+
+  // Check local storage for previous state for MMR
+  if (localStorage.getItem("sectionDisplayedMmr") === "true") {
+    toggleSectionMmr(); // If section was previously displayed, show it
+  }
+</script>
+
+
+
+
+<script>
+  // Function to toggle section display and change button color for MMRV
+  function toggleSectionMmrv() {
+    var section = document.querySelector(".mmrv-compliance-status-div");
+    var button = document.getElementById("toggleButtonMmrv");
+    
+    // Check if section is hidden
+    if (section.style.display === "none" || section.style.display === "") {
+      // Show section
+      section.style.display = "block";
+      // Change button color
+      button.style.backgroundColor = "#EB5930";
+      button.style.color = "#fff";
+      // Set a flag in local storage to remember state
+      localStorage.setItem("sectionDisplayedMmrv", "true");
+    } else {
+      // Hide section
+      section.style.display = "none";
+      // Reset button color
+      button.style.backgroundColor = "";
+      // Remove flag from local storage
+      localStorage.removeItem("sectionDisplayedMmrv");
+    }
+  }
+
+  // Add click event listener to the button for MMRV
+  document.getElementById("toggleButtonMmrv").addEventListener("click", toggleSectionMmrv);
+
+  // Check local storage for previous state for MMRV
+  if (localStorage.getItem("sectionDisplayedMmrv") === "true") {
+    toggleSectionMmrv(); // If section was previously displayed, show it
+  }
+</script>
+
+
+
+<script>
+  // Function to toggle section display and change button color for Varicella
+  function toggleSectionVaricella() {
+    var section = document.querySelector(".varicella-compliance-status-div");
+    var button = document.getElementById("toggleButtonVaricella");
+    
+    // Check if section is hidden
+    if (section.style.display === "none" || section.style.display === "") {
+      // Show section
+      section.style.display = "block";
+      // Change button color
+      button.style.backgroundColor = "#EB5930";
+      button.style.color = "#fff";
+      // Set a flag in local storage to remember state
+      localStorage.setItem("sectionDisplayedVaricella", "true");
+    } else {
+      // Hide section
+      section.style.display = "none";
+      // Reset button color
+      button.style.backgroundColor = "";
+      // Remove flag from local storage
+      localStorage.removeItem("sectionDisplayedVaricella");
+    }
+  }
+
+  // Add click event listener to the button for Varicella
+  document.getElementById("toggleButtonVaricella").addEventListener("click", toggleSectionVaricella);
+
+  // Check local storage for previous state for Varicella
+  if (localStorage.getItem("sectionDisplayedVaricella") === "true") {
+    toggleSectionVaricella(); // If section was previously displayed, show it
+  }
+</script>
+
+
+<script>
+  // Function to toggle section display and change button color for Hep B
+  function toggleSectionHepB() {
+    var section = document.querySelector(".hepb-compliance-status-div");
+    var button = document.getElementById("toggleButtonHepB");
+    
+    // Check if section is hidden
+    if (section.style.display === "none" || section.style.display === "") {
+      // Show section
+      section.style.display = "block";
+      // Change button color
+      button.style.backgroundColor = "#EB5930";
+      button.style.color = "#fff";
+      // Set a flag in local storage to remember state
+      localStorage.setItem("sectionDisplayedHepB", "true");
+    } else {
+      // Hide section
+      section.style.display = "none";
+      // Reset button color
+      button.style.backgroundColor = "";
+      // Remove flag from local storage
+      localStorage.removeItem("sectionDisplayedHepB");
+    }
+  }
+
+  // Add click event listener to the button for Hep B
+  document.getElementById("toggleButtonHepB").addEventListener("click", toggleSectionHepB);
+
+  // Check local storage for previous state for Hep B
+  if (localStorage.getItem("sectionDisplayedHepB") === "true") {
+    toggleSectionHepB(); // If section was previously displayed, show it
+  }
+</script>
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

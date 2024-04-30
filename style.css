@@ -1,0 +1,195 @@
+.header {
+    padding: 10px 15px;
+
+}
+
+.header-main {
+    background-color: #3F3E43;
+}
+
+.logo-title {
+    font-weight: 600;
+    font-size: 36px;
+    color: white;
+    padding-left: 13px;
+    margin-top: 4px;
+    margin-bottom: 5px;
+}
+
+.vaccine-compliance-style {
+    color: #EB5930;
+}
+
+.vaccine-status-and-entry {
+    width: 100%;
+    background-color: #EB5930;
+    padding: 5px 30px;
+}
+
+.student-demographic {
+    width: 50%;
+    background-color: #EB5930;
+    padding: 2px 30px;
+    margin-top: 20px;
+}
+
+.vaccine-status-title {
+    font-weight: 600;
+    font-size: 26px;
+    color: white;
+}
+
+.student-demographic-title {
+    font-weight: 600;
+    font-size: 26px;
+    color: white;
+}
+
+.student-demographic-inputs {
+    width: 50%;
+}
+
+.vaccine-button-style {
+    background-color: #3F3E43;
+    color: #EB5930;
+    font-weight: 600;
+    border-radius: 0px;
+    text-transform: lowercase;
+    border: none;
+    width: 100%;
+    margin-bottom: 10px;
+    font-size: 16px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.vaccines-buttons {
+    margin-top: 20px;
+}
+
+.get-status-btn {
+    background-color: #EB5930;
+    color: white;
+    font-weight: 600;
+    border-radius: 0px;
+    text-transform: lowercase;
+    border: none;
+    font-size: 16px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.compliance-status-div {
+    background-color: #A6A6A6;
+    padding: 30px 20px 10px 20px;
+    margin-bottom: 30px;
+    display: none;
+}
+
+.dtap-compliance-status-div {
+    background-color: #A6A6A6;
+    padding: 30px 20px 10px 20px;
+    margin-bottom: 30px;
+    display: none;
+}
+
+.tdap-compliance-status-div {
+    background-color: #A6A6A6;
+    padding: 30px 20px 10px 20px;
+    margin-bottom: 30px;
+    display: none;
+}
+
+.td-compliance-status-div {
+    background-color: #A6A6A6;
+    padding: 30px 20px 10px 20px;
+    margin-bottom: 30px;
+    display: none;
+}
+
+.dt-compliance-status-div {
+    background-color: #A6A6A6;
+    padding: 30px 20px 10px 20px;
+    margin-bottom: 30px;
+    display: none;
+}
+
+.polio-compliance-status-div {
+    background-color: #A6A6A6;
+    padding: 30px 20px 10px 20px;
+    margin-bottom: 30px;
+    display: none;
+}
+
+.mmr-compliance-status-div {
+    background-color: #A6A6A6;
+    padding: 30px 20px 10px 20px;
+    margin-bottom: 30px;
+    display: none;
+}
+
+.mmrv-compliance-status-div {
+    background-color: #A6A6A6;
+    padding: 30px 20px 10px 20px;
+    margin-bottom: 30px;
+    display: none;
+}
+
+.varicella-compliance-status-div {
+    background-color: #A6A6A6;
+    padding: 30px 20px 10px 20px;
+    margin-bottom: 30px;
+    display: none;
+}
+
+.hepb-compliance-status-div {
+    background-color: #A6A6A6;
+    padding: 30px 20px 10px 20px;
+    margin-bottom: 30px;
+    display: none;
+}
+
+.vaccine-name {
+    font-weight: 600;
+    font-size: 36px;
+    text-align: center;
+}
+
+.status-heading {
+    font-weight: 600;
+    font-size: 26px;
+    text-align: center;
+}
+
+.compliance-status-div-style {
+    background-color: #DCDDDF;
+}
+
+.compliance-status-value {
+    padding: 0px 0px 10px 20px;
+}
+
+.compliance-status-border {
+    height: 3px;
+    width: 90%;
+    background-color: grey;
+}
+
+.compliance-status-border-style {
+    padding-bottom: 10px;
+}
+
+button:focus {
+    outline: none;
+    background-color: #EB5930 !important;
+}
+
+
+@media screen and (max-width: 600px) {
+    .student-demographic {
+        width: 100%;
+    }
+    .student-demographic-inputs {
+        width: 100%;
+    }
+  }

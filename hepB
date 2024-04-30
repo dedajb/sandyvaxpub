@@ -1,0 +1,183 @@
+   <script>
+    
+    document.addEventListener('DOMContentLoaded', function() {
+   var elems = document.querySelectorAll('select');
+   var instances = M.FormSelect.init(elems, options);
+ });
+ 
+   document.addEventListener('DOMContentLoaded', function() {
+    
+    document.getElementById("btnHep").addEventListener("click",hepB);
+  });
+
+
+  document.getElementById("gradeLevel").addEventListener("mouseover",hepB);
+   document.getElementById("gradeLevel").addEventListener("click",hepB);
+    document.getElementById("gradeLevel").addEventListener("change",hepB);
+    document.getElementById("gradeLevel").addEventListener("input",hepB);
+    document.getElementById("gradeLevel").addEventListener("mousemove",hepB);
+
+        function hepB(){
+    
+        
+    //create variable for entries
+
+    var dose1= document.getElementById("dose1").value; 
+    var dose2 = document.getElementById("dose2").value; 
+    var dose3 = document.getElementById("dose3").value; 
+    var dose4 = document.getElementById("dose4").value;
+    var grade = document.getElementById("gradeLevel").value;
+    var birthday = new Date(document.getElementById("bday").value);
+      console.log(dose1) 
+        
+ function onlyUnique(value, index, self) {
+  return self.indexOf(value) === index;
+}
+        var startDoses = [];
+     startDoses.push(dose1,dose2,dose3,dose4);
+          console.log(startDoses)
+        var startDoses = startDoses.filter(onlyUnique);
+              console.log(startDoses) 
+Logger.log(startDoses)
+
+var dose1 = new Date(dose1); 
+var dose2 = new Date(dose2);
+var dose3 = new Date(dose3);
+var dose4 = new Date(dose4);
+console.log(dose1);        
+              var doses0 = [];
+
+
+if(!isNaN(dose1)){doses0.push(dose1);};  
+if(!isNaN(dose2)){doses0.push(dose2);};
+if(!isNaN(dose3)){doses0.push(dose3);};
+if(!isNaN(dose4)){doses0.push(dose4);};
+console.log(doses0);
+var doses0 = doses0.sort(function(a, b){return a - b});
+var doses0 = doses0.filter(onlyUnique);       
+console.log(doses0); 
+ 
+        
+        var doses = [];
+        if (doses0[0]>=birthday) {doses.push(doses0[0]);} 
+ if (doses0[1]>=birthday) {doses.push(doses0[1]);} 
+         if (doses0[2]>=birthday) {doses.push(doses0[2]);} 
+         if (doses0[3]>=birthday) {doses.push(doses0[3]);} 
+        
+     console.log(doses)
+var doses = doses.sort(function(a, b){return a - b})
+var doses = doses.filter(onlyUnique)       
+console.log(doses)   
+        
+        
+    if (isNaN(birthday)) {
+        console.log(birthday) 
+document.getElementById("interval").innerHTML = "Enter Date of Birth";
+        document.getElementById("result").innerHTML = "";
+        alert("Enter Date of Birth");
+    }
+        
+   else if (isNaN(doses[0]))
+            {
+               console.log(doses[0]) 
+document.getElementById("interval").innerHTML = "Enter Valid Doses";
+        document.getElementById("result").innerHTML = "";
+                alert("Enter Valid Doses");
+                
+            }
+        
+        else
+            {
+
+        
+console.log(birthday)  
+function isGreaterThanBday(x) {
+var birthday = new Date(document.getElementById("bday").value);
+console.log(birthday);
+return x >= birthday;
+}
+     
+       
+var fDoses = doses.filter(isGreaterThanBday)
+var fDoses = doses.filter(onlyUnique)
+var fDoses = doses.sort(function(a, b){return a - b}); 
+console.log(fDoses);
+console.log(fDoses[0]);
+
+            
+        
+  function isGreaterThanDose1(x,date1){
+        var date1 = new Date(fDoses[0]);
+        var addDays1 = new Date(date1.setDate(date1.getDate()+28));
+        console.log(addDays1);
+     return x >= addDays1;
+}
+var fDoses1 = fDoses.filter(isGreaterThanDose1); 
+var fDoses1 = fDoses1.filter(onlyUnique); 
+var fDoses1 = fDoses1.sort(function(a, b){return a - b}); 
+        
+console.log(fDoses1)
+console.log(fDoses1[0])
+     
+function isGreaterThanDose2(x,date2,date3){
+       var date2 = new Date(fDoses1[0]);
+       var date3 = new Date(fDoses[0]);
+       var addDays2 = new Date(date2.setDate(date2.getDate()+56));
+       var addDays3 = new Date(date3.setDate(date3.getDate()+112));
+        console.log(addDays2);
+        console.log(addDays3);
+    return x >=addDays3;
+    return x >= addDays2;
+
+}
+        
+var fDoses2 = fDoses1.filter(isGreaterThanDose2); 
+var fDoses2 =  fDoses2.filter(onlyUnique);
+var fDoses2 =  fDoses2.sort(function(a, b){return a - b});
+console.log(fDoses2); 
+console.log(fDoses2[0]);
+                
+var validDoses = [];        
+if(!isNaN(fDoses[0])){validDoses.push(fDoses[0]);} 
+ if(!isNaN(fDoses1[0])){validDoses.push(fDoses1[0]);}   
+if(!isNaN(fDoses2[0])){validDoses.push(fDoses2[0]);} 
+  var validDoses = validDoses.filter(onlyUnique)
+var validDoses = validDoses.sort(function(a, b){return a - b});               
+                
+  console.log(validDoses); 
+
+         
+        
+        //Define alert to show output
+   
+    alert("Valid Dose 1: "+validDoses[0]+"\n"+
+          "Valid Dose 2: "+validDoses[1]+"\n"+
+         "Valid Dose 3: "+validDoses[2]);
+        
+      if (!isNaN(validDoses[2])) {
+          
+          
+         document.getElementById("interval").innerHTML =
+    "Valid Dose 1 to Valid Dose 2: "+(validDoses[1]-validDoses[0])/ (1000 * 3600 * 24)+" days"+"\n"+"Valid Dose 2 to Valid Dose 3: "+(validDoses[2]-validDoses[1])/ (1000 * 3600 * 24)+" days"+"\n"+"Valid Dose 1 to Valid Dose 3: "+(validDoses[2]-validDoses[0])/ (1000 * 3600 * 24)+" days";  
+         
+          
+    document.getElementById("result").innerHTML =
+"Hep B: Compliant"+"\n"+"Valid Dose 1: "+validDoses[0]+"\n"+
+          "Valid Dose 2: "+validDoses[1]+"\n"+
+         "Valid Dose 3: "+validDoses[2];
+      }
+        else
+            {
+                
+          document.getElementById("interval").innerHTML =
+    "Non-Compliant Student: Needs additional dose(s)";        
+                
+                document.getElementById("result").innerHTML =
+"Hep B: Non-Compliant"+"\n"+"Valid Dose 1: "+validDoses[0]+"\n"+
+          "Valid Dose 2: "+validDoses[1]+"\n"+
+         "Valid Dose 3: "+validDoses[2];}
+
+    }
+    }
+
+    </script>
