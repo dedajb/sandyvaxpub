@@ -63,7 +63,7 @@ function MCV4(){
   if (isNaN(birthday)) {
     console.log(birthday) 
     document.getElementById("intervalMCV4").innerHTML = "Enter Date of Birth";
-    document.getElementById("resultMCV4").innerHTML = "";
+    document.getElementById("resultMCV4").innerHTML = "Invalid Input";
     alert("Enter Date of Birth");
   }
   
@@ -71,19 +71,26 @@ function MCV4(){
   {
     console.log(doses[0]) 
     document.getElementById("intervalMCV4").innerHTML = "Enter Valid Doses";
-    document.getElementById("resultMCV4").innerHTML = "";
+    document.getElementById("resultMCV4").innerHTML = "Invalid Doses";
     alert("Enter Valid Doses");
     
   }
   
+  console.log(birthday)  
+  var yearB = birthday.getFullYear();
+  var monthB = birthday.getMonth();
+  var dayB = birthday.getDate();
+    if(grade>1 && grade<12){
+      console.log("grade")
+      console.log(6)
 
-    if(grade>6 && grade<12){
-      console.log(birthday)  
+      
       function isGreaterThanBday(x) {
         var birthday = new Date(document.getElementById("bday").value);       
         var yearB = birthday.getFullYear();
         var monthB = birthday.getMonth();
         var dayB = birthday.getDate();
+   
         var birthday1 = new Date(yearB + 11, monthB, dayB-4);    
         console.log(birthday1);
         return x >= birthday1;
@@ -98,11 +105,26 @@ function MCV4(){
       
       var validDoses = [];        
       if(!isNaN(fDoses[0])){validDoses.push(fDoses[0]);
-                            
+        console.log("validDoses")
+        console.log(validDoses)
+
      document.getElementById("resultMCV4").innerHTML =
      "<b style='color:green;'>MCV4 Status: Compliant</b>"+"<li><i>Valid Dose 1: "+validDoses[0].toDateString()+"</li>";
-                            
-    document.getElementById("intervalMCV4").innerHTML ="";                        
+     
+     var addDays4 = new Date(yearB + 16, monthB, dayB+1);
+     console.log("compare")
+console.log(new Date(validDoses[0]))
+console.log(addDays4)
+console.log(new Date(validDoses[0])<=addDays4)
+     if(new Date(validDoses[0])<=addDays4) {
+                   
+    document.getElementById("intervalMCV4").innerHTML =
+    "<b style='color:0E4D92;'>Next dose is due on or after the 16th Birthday:</b> "+addDays4.toDateString();
+     }
+    else{
+
+      document.getElementById("intervalMCV4").innerHTML ="No additional steps required";
+    }
                            }
       else
       {
@@ -110,7 +132,7 @@ function MCV4(){
         
         
         document.getElementById("intervalMCV4").innerHTML =
-          "<b>Non-Compliant Student: Needs additional dose(s)";        
+          "<b>Needs dose of vaccine";        
         
         document.getElementById("resultMCV4").innerHTML =
           "<b style='color:red;'>MCV4 Status: Non-Compliant</b>";
@@ -184,7 +206,7 @@ function MCV4(){
                                                    {
                                                        
             document.getElementById("intervalMCV4").innerHTML =
-          "<b>Non-Compliant Student: Needs additional dose(s)";   
+          "<b>Needs dose of vaccine";   
                                                    }
                                                      
         }
@@ -217,11 +239,18 @@ function MCV4(){
                                                      
         document.getElementById("resultMCV4").innerHTML =
         "<b style='color:green;'>MCV4 Status: Compliant</b>"+"<li><i>Valid Dose 1: "+validDoses[0].toDateString()+"</li>";
-                                                   }
+        document.getElementById("intervalMCV4").innerHTML =
+     "<b>No additional doses required<b/>";                                              
+      }
                                                    else
                                                    {
-        document.getElementById("intervalMCV4").innerHTML =
-     "<b>Non-Compliant Student: Needs additional dose(s)";        
+                                                    document.getElementById("resultMCV4").innerHTML =
+        "<b style='color:red;'>MCV4 Status: Non-Compliant</b>";
+        
+        var birthday1 = new Date(yearB + 16, monthB, dayB+1);    
+
+     document.getElementById("intervalMCV4").innerHTML =
+    "<b style='color:0E4D92;'>Next dose is due on or after the 16th Birthday:</b> "+birthday1.toDateString()+"</li>";
                                                 
                                                    }
                                                        

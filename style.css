@@ -17,18 +17,18 @@
 }
 
 .vaccine-compliance-style {
-    color: #EB5930;
+    color: #72c3fb;
 }
 
 .vaccine-status-and-entry {
     width: 100%;
-    background-color: #EB5930;
+    background-color: #72c3fb;
     padding: 5px 30px;
 }
 
 .student-demographic {
     width: 50%;
-    background-color: #EB5930;
+    background-color: #72c3fb;
     padding: 2px 30px;
     margin-top: 20px;
 }
@@ -51,7 +51,7 @@
 
 .vaccine-button-style {
     background-color: #3F3E43;
-    color: #EB5930;
+    color: #72c3fb;
     font-weight: 600;
     border-radius: 0px;
     text-transform: lowercase;
@@ -68,7 +68,7 @@
 }
 
 .get-status-btn {
-    background-color: #EB5930;
+    background-color: #72c3fb;
     color: white;
     font-weight: 600;
     border-radius: 0px;
@@ -181,7 +181,7 @@
 
 button:focus {
     outline: none;
-    background-color: #EB5930 !important;
+    background-color: #72c3fb !important;
 }
 
 
